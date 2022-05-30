@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DomingoRoofWorksWebApplication.Models.Customer>
+
+@{
+    ViewBag.Title = "CustomerIndex";
+}
+
+<h2>Customers</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Customer ID
+        </th>
+        <th>
+            Customer First Name
+        </th>
+        <th>
+            Customer Last Name
+        </th>
+        <th>
+            Street
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Postal Code
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.PostalCode)
+            </td>
+            <td>
+            @Html.ActionLink("Edit", "EditCustomer", new { id = item.Customer_ID.Replace(" ", "") })
+        </td>
+        </tr>
+    }
+
+</table>

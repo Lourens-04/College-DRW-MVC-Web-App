@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DomingoRoofWorksWebApplication.Models.Job>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Jobs</h2>
+
+<p>
+    @Html.ActionLink("Create New Job", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Job Card Number
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Card_No)
+        </td>
+        
+            <td>
+                @Html.ActionLink("Details", "JobDetails", new { id = item.Job_Card_No.Replace(" ", "") })
+            </td>
+    </tr>
+    }
+</table>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DomingoRoofWorksModelStoreContainer" CdmEntityContainer="DomingoRoofWorksEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+          <ScalarProperty Name="C_FirstName" ColumnName="C_FirstName" />
+          <ScalarProperty Name="C_LastName" ColumnName="C_LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="E_FirstName" ColumnName="E_FirstName" />
+          <ScalarProperty Name="E_LastName" ColumnName="E_LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Job">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Employee_Job">
+        <MappingFragment StoreEntitySet="Employee_Job">
+          <ScalarProperty Name="EmployeesJob_ID" ColumnName="EmployeesJob_ID" />
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Job_Card_No" ColumnName="Job_Card_No" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="Job_Card_No" ColumnName="Job_Card_No" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
+          <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Material">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Job_Material">
+        <MappingFragment StoreEntitySet="Job_Material">
+          <ScalarProperty Name="JobMaterials_ID" ColumnName="JobMaterials_ID" />
+          <ScalarProperty Name="Material_ID" ColumnName="Material_ID" />
+          <ScalarProperty Name="Job_Card_No" ColumnName="Job_Card_No" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Type">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Job_Type">
+        <MappingFragment StoreEntitySet="Job_Type">
+          <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
+          <ScalarProperty Name="JobTypeDesc" ColumnName="JobTypeDesc" />
+          <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="DomingoRoofWorksModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Material_ID" ColumnName="Material_ID" />
+          <ScalarProperty Name="MaterialDesc" ColumnName="MaterialDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

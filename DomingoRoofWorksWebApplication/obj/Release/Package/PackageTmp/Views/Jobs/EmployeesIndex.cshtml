@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DomingoRoofWorksWebApplication.Models.Employee>
+
+@{
+    ViewBag.Title = "EmployeesIndex";
+}
+
+<h2>Employees</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Employee ID
+        </th>
+        <th>
+            Employee First Name
+        </th>
+        <th>
+            Employee Last Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "EmployeeDetails", new { id = item.Emp_ID.Replace(" ", "") }) |
+            @Html.ActionLink("Edit", "EditEmployees", new { id = item.Emp_ID.Replace(" ", "") })
+        </td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2310938c8974474d8067710e2b5c77a0" Name="Diagram1">
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Address" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Customer" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Employee" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Employee_Job" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Job" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Job_Material" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Job_Type" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DomingoRoofWorksModel.Material" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Customer__Addres__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Job__Costomer_ID__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Employees__Emp_I__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Employees__Job_C__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Job__JobType_ID__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Job_Mater__Job_C__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="DomingoRoofWorksModel.FK__Job_Mater__Mater__22AA2996" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

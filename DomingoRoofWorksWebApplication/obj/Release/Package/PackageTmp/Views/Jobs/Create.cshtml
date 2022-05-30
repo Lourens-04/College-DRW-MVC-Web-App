@@ -1,0 +1,95 @@
+﻿@model DomingoRoofWorksWebApplication.Models.Job
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    <h4>Create New Job</h4>
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer, "Choose Customer", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control", @required = "true" })
+            @Html.ValidationMessageFor(model => model.Customer, "", new { @class = "text-danger" })
+            @Html.ActionLink("Create New Customer", "CreateCustomer")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Job_Type.JobTypeDesc, "Job Type", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("JobType_ID", null, htmlAttributes: new { @class = "form-control", @required = "true" })
+            @Html.ValidationMessageFor(model => model.Job_Type, "", new { @class = "text-danger" })
+            @Html.ActionLink("Create New Job Type", "CreateJob_Type")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NoOfDays, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NoOfDays, new { htmlAttributes = new { @class = "form-control", @required = "true", @type = "number", @min = "0" } })
+            @Html.ValidationMessageFor(model => model.NoOfDays, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p><strong>Hold control key on your keyboard and select the employees you want to add, this is if you want to add multible employees to a job.</strong></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Employee_Job, "Assign Employee", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Emp_ID", null, htmlAttributes: new { @class = "form-control",@required = "true", @multiple = "true"  })
+            @Html.ValidationMessageFor(model => model.Employee_Job, "", new { @class = "text-danger" })
+            @Html.ActionLink("Create New Employees", "CreateEmployees")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p><strong>To add more materials jou need to create a new job again and choose the same customer and select another material for that customer job.</strong></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Job_Type.JobTypeDesc, "Choose Materials", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Material_ID", null, htmlAttributes: new { @class = "form-control", @required = "true" })
+            @Html.ValidationMessageFor(model => model.Job_Material, "", new { @class = "text-danger" })
+            @Html.ActionLink("Create New Material", "CreateMaterials")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Job_Material, "Quantity Of Material", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("Quantity", null, htmlAttributes: new { @class = "form-control", @required = "true", @type = "number", @min = "0" })
+            @Html.ValidationMessageFor(model => model.Job_Material, "", new { @class = "text-danger", ErrorMessage = "Not a number" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to View Jobs", "JobIndex")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

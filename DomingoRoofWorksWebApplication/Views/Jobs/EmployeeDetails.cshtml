@@ -1,0 +1,51 @@
+﻿@model DomingoRoofWorksWebApplication.Models.Employee
+
+@{
+    ViewBag.Title = "EmployeeDetails";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_FirstName)
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_LastName)
+        </dd>
+
+        <dt>
+            Assigned Jobs
+        </dt>
+
+           @if (Model.Employee_Job.Count == 0)
+           {
+           <dd>Employee is not assigned to a job</dd>
+               }
+           else
+           {
+               foreach (var item in Model.Employee_Job)
+               {
+               <dd>
+                   @Html.DisplayFor(model => item.Job_Card_No) <text>&nbsp</text>
+               </dd>
+               }
+           }
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to view employees", "EmployeesIndex")
+</p>

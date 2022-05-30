@@ -1,0 +1,112 @@
+﻿@model DomingoRoofWorksWebApplication.Models.Job
+
+@{
+    ViewBag.Title = "CustomersInvoice";
+}
+
+<h2>Customer Invoice</h2>
+
+<div>
+    <h4>Invoice for Job</h4>
+
+    <dl class="dl-horizontal">
+        <dt>
+            Customer First Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.C_FirstName)
+        </dd>
+
+        <dt>
+            Customer Last Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.C_LastName)
+        </dd>
+
+        <dt>
+            Job Type Description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Job_Type.JobTypeDesc)
+        </dd>
+
+        <dt>
+            Number of Days
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoOfDays)
+        </dd>
+
+        <dt>
+            Assigned Employees
+        </dt>
+
+        @if (Model.Employee_Job.Count == 0)
+        {
+            <dd>No Employees assigned</dd>
+        }
+        else
+        {
+            foreach (var item in Model.Employee_Job)
+            {
+            <dd>
+                @Html.DisplayFor(model => item.Employee.Emp_ID) <text>&nbsp</text>
+                @Html.DisplayFor(modelItem => item.Employee.E_FirstName)<text>&nbsp</text>
+                @Html.DisplayFor(modelItem => item.Employee.E_LastName)<br/>
+            </dd>
+            }
+        }
+
+        <dt>
+            Assigned Materials
+        </dt>
+        @if (Model.Job_Material.Count > 0)
+        {
+            foreach (var item in Model.Job_Material)
+            {
+                <dd>@Html.DisplayFor(model => item.Quantity) x @Html.DisplayFor(model => item.Material.MaterialDesc)</dd>
+            }
+        }
+        else
+        {
+            <dd>No materials assigned</dd>
+        }
+    </dl>
+
+    <table class="table">
+        <tr>
+            <th>Number of days</th>
+            <th>Price per day</th>
+            <th>Subtotal</th>
+        </tr>
+
+        <tr>
+            @{
+                double subtotal = Convert.ToDouble(Model.Job_Type.DailyRate * Model.NoOfDays);
+                double vat = subtotal * 0.15;
+                double total = subtotal + vat;
+
+            }
+            <td>@Html.DisplayFor(model => model.NoOfDays)</td>
+            <td>@Html.DisplayFor(model => model.Job_Type.DailyRate)</td>
+            <td>@Html.DisplayFor(model => subtotal)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <th>VAT</th>
+            <td>R @Html.DisplayFor(model => vat)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <th>Total</th>
+            <td>R @Html.DisplayFor(model => total)</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Back to view invoices", "CustomerInvoiceIndex")
+</p>
